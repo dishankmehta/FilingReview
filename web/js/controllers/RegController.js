@@ -1,11 +1,11 @@
 /**
  * Created by trainees on 1/31/2017.
  */
-angular.module('reg').controller('RegController',RegController,['$scope','$http']).directive("compareTo",compareTo);
+angular.module('reg').controller('RegController',RegController).directive("compareTo",compareTo);
 
 
     function RegController($scope,$http) {
-
+        console.log('Register called.');
         $scope.submitRegForm = function () {
             $http({
                 url: 'RegisterServlet',
@@ -20,12 +20,13 @@ angular.module('reg').controller('RegController',RegController,['$scope','$http'
                     'email': $scope.email,
                     'password': $scope.password
                 }
-            }).success(function (data) {
+            }).success(function (data,status,headers,config) {
+                console.log(data);
                 window.location.href = "index.html";
                 window.alert("You have been successfully registered..!!");
             });
         };
-        
+
     }
 
 

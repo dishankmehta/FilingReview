@@ -5,6 +5,7 @@ import model.UserRegister;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  * Created by trainees on 1/31/2017.
@@ -15,9 +16,9 @@ public class DataBaseAccess {
 
     }
 
-    public Connection makeConnection(){
+    private Connection makeConnection(){
         Connection conn = null;
-
+        System.out.println("Making Database Connection...!!!");
         try{
 
             Class.forName("com.mysql.jdbc.Driver");
@@ -36,21 +37,36 @@ public class DataBaseAccess {
         return conn;
     }
 
-    public boolean checkUser(String username, String password){
+    public boolean checkUser(String userName, String password){
 
         Connection conn = makeConnection();
 
-        PreparedStatement ps = null;
+        PreparedStatement ps;
 
-        String stmt = "";
+        String stmt = "SELECT * FROM `user_data` WHERE (email=? OR userName=?) AND password=?";
 
-        return false;
+        try {
+
+            ps = conn.prepareStatement(stmt);
+
+            ps.setString(1,userName);
+            ps.setString(2,userName);
+            ps.setString(3,password);
+
+            ResultSet rs = ps.executeQuery();
+
+            return rs != null;
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public void insertData(UserRegister ur){
         Connection conn = makeConnection();
 
-        PreparedStatement ps = null;
+        PreparedStatement ps;
 
         String stmt = "INSERT INTO `user_data`(`firstName`, `lastName`, `gender`, `contact`, `userName`, `email`, `password`) VALUES (?,?,?,?,?,?,?)";
 

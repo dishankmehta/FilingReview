@@ -54,8 +54,8 @@ public class RegisterServlet extends HttpServlet {
 
             jobj = (JSONObject) jparser.parse(sb.toString());
 
-            firstName = (String) jobj.get("firstname");
-            lastName = (String) jobj.get("lastname");
+            firstName = (String) jobj.get("firstName");
+            lastName = (String) jobj.get("lastName");
             gender = (String) jobj.get("gender");
             contact = (String) jobj.get("contact");
             userName = (String) jobj.get("userName");
