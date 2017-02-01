@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/modules/Login.js"></script>
+    <script src="js/controllers/LoginController.js"></script>
+
+
+</head>
+<body ng-app="MyApp" ng-controller="LoginController as lc" layout="column"  ng-cloak="">
+
+
+
+    <md-toolbar layout="row" layout-align="center center">
+        <h1 style="align-items: center">Welcome to My Application</h1>
+    </md-toolbar>
+
+    <div id="loginContainer" class="md-inline-form">
+
+        <md-card md-theme="dark-grey" md-theme-watch
+                 class="cardSize md-whiteframe-10dp" layout="column" layout-align="center center">
+
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="md-headline">Login</span>
+                </md-card-header-text>
+            </md-card-header>
+
+            <md-card-content layout="column">
+                <form name="loginForm">
+
+                    <md-input-container class="md-block">
+                        <label>Username:</label>
+                        <input ng-model="userName"  type="text" required aria-label="Username">
+                        <div ng-messages="loginForm.userName.$error">
+                            <div ng-message="required">Username is required.</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                        <label>Password:</label>
+                        <input ng-model="password" type="password" required aria-label="Password">
+                        <div ng-messages="loginForm.password.$error">
+                            <div ng-message="required">Password is required.</div>
+                        </div>
+                    </md-input-container>
+
+
+
+                    <md-button class="md-raised md-primary loginButton" md-theme="default">
+                        Login
+                    </md-button>
+
+                </form>
+
+                <div layout="row">
+                    <a href="#" style="margin-right: 10px">Forgot Password?</a>
+                    <a href="registerUser.html" style="margin-left: 10px">Not a Member? Register!</a>
+                </div>
+
+
+            </md-card-content>
+
+        </md-card>
+
+    </div>
+
+    <script>
+
+        angular.module('MyApp',['ngMaterial','login'])
+            .config(function ($mdThemingProvider) {
+                $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark().primaryPalette('grey').accentPalette('red');
+            });
+
+
+    </script>
+
+</body>
+</html>

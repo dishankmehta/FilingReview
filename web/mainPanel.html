@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+        <title>Welcome</title>
+        <meta charset="ISO-8859-1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.css">
+        <link rel="stylesheet" href="css/mainPanel.css">
+        <script src="js/modules/Users.js"></script>
+        <script src="js/controllers/UserController.js"></script>
+        <script src="js/services/UserService.js"></script>
+
+
+
+  </head>
+  <body ng-app="MyApp" layout="column" ng-controller="UserController as ul">
+
+        <md-toolbar layout="row">
+            <md-button class="menu" ng-click="ul.toggleList()" hide-gt-sm="">
+                <md-icon md-svg-icon="menu"></md-icon>
+            </md-button>
+            <h1 style="align-items: center">Angular Material Starter</h1>
+        </md-toolbar>
+
+        <div layout="row" flex="">
+            <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-4dp" md-component-id="left">
+                <md-list ng-click="ul.toggleList()">
+                    <md-list-item ng-repeat="u in ul.users">
+                        <md-button ng-click="ul.selectUser(u)">
+                            <md-icon md-svg-src="{{u.avatar}}" class="avatar"></md-icon>
+                            {{u.name}}
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </md-sidenav>
+
+            <md-content id="content" flex="">
+                <md-icon md-svg-src="{{ul.selected.avatar}}" class="avatar"></md-icon>
+                <h2>{{ul.selected.name}}</h2>
+                <p>
+                    {{ul.selected.content}}
+                </p>
+
+                <md-button class="share" md-no-ink="" aria-label="Share" ng-click="ul.share(ul.selected)">
+                    <md-icon md-svg-icon="share"></md-icon>
+                </md-button>
+
+            </md-content>
+        </div>
+
+
+
+        <script>
+
+            angular.module('MyApp',['ngMaterial','users'])
+                .config(function ($mdIconProvider,$mdThemingProvider) {
+                    $mdIconProvider.defaultIconSet('/svgs/avatars.svg', 128);
+                    $mdIconProvider.icon('share','/svgs/share.svg', 24);
+                    $mdIconProvider.icon('menu','/svgs/menu.svg',24);
+
+                    $mdThemingProvider.theme('default')
+                        .primaryPalette('brown')
+                        .accentPalette('red');
+                });
+
+        </script>
+
+  </body>
+</html>

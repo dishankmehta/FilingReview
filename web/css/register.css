@@ -1,0 +1,18 @@
+h1{
+    align-items: center;
+}
+
+.labelColor{
+    color: grey;
+}
+
+.radioMargin{
+    margin-bottom:30px;
+}
+
+.loginButton{
+    left: 0;
+    right: 0;
+    margin-left: 150px;
+    margin-bottom: 20px;
+}

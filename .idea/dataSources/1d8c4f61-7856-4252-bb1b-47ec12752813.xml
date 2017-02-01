@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="filing_review@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="filing_review">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="angular_practice"/>
+    <schema id="4" parent="1" name="hibernet_prac"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="practice"/>
+    <schema id="9" parent="1" name="school_management"/>
+    <schema id="10" parent="1" name="student_register"/>
+    <schema id="11" parent="1" name="test"/>
+    <schema id="12" parent="1" name="web_register"/>
+    <table id="13" parent="2" name="user_data"/>
+    <column id="14" parent="13" name="firstName">
+      <Position>1</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="15" parent="13" name="lastName">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="16" parent="13" name="gender">
+      <Position>3</Position>
+      <DataType>varchar(6)|0</DataType>
+    </column>
+    <column id="17" parent="13" name="contact">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="18" parent="13" name="userName">
+      <Position>5</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="19" parent="13" name="email">
+      <Position>6</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="13" name="password">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="21" parent="13" name="PRIMARY">
+      <ColNames>email</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
