@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>Welcome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-aria.min.js"></script>
@@ -22,69 +24,60 @@
 
 
 
-    <md-toolbar layout="row" layout-align="center center">
+    <md-toolbar layout-align="center center">
         <h1 style="align-items: center">Welcome to My Application</h1>
     </md-toolbar>
 
     <div id="container">
 
-        <div class="md-inline-form" id="loginContainer">
+        <div id="loginContainer">
 
-        <md-card md-theme="dark-grey" md-theme-watch
-                 class="cardSize md-whiteframe-10dp" layout="column" layout-align="center center">
+            <div class="card text-center" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;">
 
-            <md-card-header layout="row">
-                <md-card-header-text>
-                    <span class="md-title">Login</span>
-                </md-card-header-text>
-            </md-card-header>
-
-            <md-card-content layout="column">
-                <form name="loginForm">
-
-                    <md-input-container class="md-block">
-                        <label>Username:</label>
-                        <input ng-model="userName"  type="text" required aria-label="Username">
-                        <div ng-messages="loginForm.userName.$error">
-                            <div ng-message="required">Username is required.</div>
-                        </div>
-                    </md-input-container>
-
-                    <md-input-container class="md-block">
-                        <label>Password:</label>
-                        <input ng-model="password" type="password" required aria-label="Password">
-                        <div ng-messages="loginForm.password.$error">
-                            <div ng-message="required">Password is required.</div>
-                        </div>
-                    </md-input-container>
-
-
-
-                    <md-button class="md-raised md-primary loginButton" md-theme="default">
-                        Login
-                    </md-button>
-
-                </form>
-
-                <div layout="row">
-                    <a href="#" style="margin-right: 10px">Forgot Password?</a>
-                    <a href="registerUser.html" style="margin-left: 10px">Not a Member? Register!</a>
+                <div class="login_title" style="background-color: #7AC74F; color: #fafafa">
+                    <h4 style="margin: 20px">Login</h4>
                 </div>
 
 
-            </md-card-content>
+                <div class="card-block" layout="column">
 
-        </md-card>
+                    <form name="loginForm" role="form">
+
+                        <md-input-container class="md-block">
+                            <label>Username:</label>
+                            <input ng-model="userName"  type="text" required aria-label="Username">
+                            <div ng-messages="loginForm.userName.$error">
+                                <div ng-message="required">Username is required.</div>
+                            </div>
+                        </md-input-container>
+
+                        <md-input-container class="md-block">
+                            <label>Password:</label>
+                            <input ng-model="password" type="password" required aria-label="Password">
+                            <div ng-messages="loginForm.password.$error">
+                                <div ng-message="required">Password is required.</div>
+                            </div>
+                        </md-input-container>
+
+
+
+                        <md-button class="md-raised md-primary" md-theme="default" ng-click="checkUser()">
+                            Login
+                        </md-button>
+
+                    </form>
+
+                    <div layout="row">
+                        <a href="#" style="margin: 10px">Forgot Password?</a>
+                        <a href="registerUser.html" style="margin-left: 30px;margin-top: 10px">Not a Member? Register!</a>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 
     </div>
-
-
-
-
-
-
 
 
     <script>

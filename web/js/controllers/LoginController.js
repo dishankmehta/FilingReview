@@ -21,6 +21,8 @@ angular.module('login').controller('LoginController',LoginController);
                 }
             }).success(function (data) {
                 window.location.href = "mainPanel.html";
+            }).error(function (data,status,headers,config) {
+                
             });
         }
 
