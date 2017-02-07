@@ -19,7 +19,7 @@ angular.module('login').controller('LoginController',LoginController);
                     'userName': $scope.userName,
                     'password': $scope.password
                 }
-            }).success(function (data,status,headers,config) {
+            }).success(function (data) {
                 /*window.location.href = "mainPanel.html";*/
                 $scope.isValid = data;
             }).error(function (data,status,headers,config) {
