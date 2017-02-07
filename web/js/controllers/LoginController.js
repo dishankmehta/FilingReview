@@ -8,7 +8,7 @@ angular.module('login').controller('LoginController',LoginController);
         var self = this;
         
         self.checkUser = checkUser;
-        
+        self.isValid = false;
         
         function checkUser() {
             $http({
@@ -19,10 +19,13 @@ angular.module('login').controller('LoginController',LoginController);
                     'userName': $scope.userName,
                     'password': $scope.password
                 }
-            }).success(function (data) {
-                window.location.href = "mainPanel.html";
+            }).success(function (data,status,headers,config) {
+                /*window.location.href = "mainPanel.html";*/
+                $scope.isValid = data;
             }).error(function (data,status,headers,config) {
-                
+                console.log(data);
+                $scope.isValid = data;
+                console.log($scope.isValid);
             });
         }
 

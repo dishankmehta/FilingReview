@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.BufferedReader;
 import java.io.IOException;
 
@@ -17,54 +18,26 @@ import java.io.IOException;
  */
 public class LoginServlet extends HttpServlet {
 
-    private String userName;
-    private String password;
-    private Boolean isRegistered;
+
 
     @Override
     public void init() throws ServletException {
-        userName = null;
-        password = null;
-        isRegistered = false;
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        StringBuffer sb = new StringBuffer();
+        HttpSession session = request.getSession();
+        boolean isUserValid = (boolean)session.getAttribute("validity");
+        if (isUserValid){
+            System.out.println("--------->"+isUserValid);
 
-        System.out.println("Checking the User..!!");
-
-        try {
-
-            BufferedReader br = request.getReader();
-            String line = null;
-            while((line = br.readLine()) != null){
-                sb.append(line);
-            }
-
-            JSONParser jparser = new JSONParser();
-            JSONObject jobj = null;
-
-            jobj = (JSONObject) jparser.parse(sb.toString());
-
-            userName = (String) jobj.get("userName");
-            password = (String) jobj.get("password");
-
-            System.out.println(userName+"<---------->"+password);
-
-            DataBaseAccess dataBaseAccess = new DataBaseAccess();
-
-            isRegistered = dataBaseAccess.checkUser(userName,password);
-
-            if(isRegistered){
-                response.sendRedirect("mainPanel.html");
-            }else{
-                RequestDispatcher rd = request.getRequestDispatcher("index.html");
-                rd.include(request,response);
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/mainPanel.html");
+            requestDispatcher.forward(request,response);
+            System.out.println("--------->>>After dispatch");
+            /*response.sendRedirect("mainPanel.html");
+            return;*/
         }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

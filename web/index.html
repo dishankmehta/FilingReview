@@ -41,7 +41,7 @@
 
                 <div class="card-block" layout="column">
 
-                    <form name="loginForm" role="form">
+                    <form name="loginForm" role="form" ng-submit="lc.checkUser()">
 
                         <md-input-container class="md-block">
                             <label>Username:</label>
@@ -61,7 +61,7 @@
 
 
 
-                        <md-button class="md-raised md-primary" md-theme="default" ng-click="checkUser()">
+                        <md-button class="md-raised md-primary" md-theme="default" ng-click="lc.checkUser()">
                             Login
                         </md-button>
 
@@ -77,6 +77,25 @@
 
         </div>
 
+    </div>
+
+    <div class="modal fade" ng-show="!lc.isValid">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login Unsuccessful.</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Enter correct Username or password!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 

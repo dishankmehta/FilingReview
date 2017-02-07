@@ -43,6 +43,8 @@ public class DataBaseAccess {
 
         PreparedStatement ps;
 
+        System.out.println("Going into database..!!");
+
         String stmt = "SELECT * FROM `user_data` WHERE (email=? OR userName=?) AND password=?";
 
         try {
@@ -55,12 +57,17 @@ public class DataBaseAccess {
 
             ResultSet rs = ps.executeQuery();
 
-            return rs != null;
+            //System.out.println(rs.getString(0)+"<---------->"+rs.getString(1));
+            if(rs.next()){
+                return true;
+            }
+
 
         }catch (Exception e){
             e.printStackTrace();
             return false;
         }
+        return false;
     }
 
     public void insertData(UserRegister ur){

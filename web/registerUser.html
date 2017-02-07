@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <title>Register for Portal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-messages.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.css">
     <link rel="stylesheet" href="css/register.css">
@@ -25,107 +28,110 @@
 
 
     <div class="container">
-        <div class="md-inline-form">
-            <md-card class="md-whiteframe-10dp" layout="column" layout-align="center center" md-theme="custom-theme" md-theme-watch>
 
-                <div>
-                    <md-card-header layout="row">
-                        <md-card-header-text>
-                            <span class="md-headline">Register</span>
-                        </md-card-header-text>
-                    </md-card-header>
-                </div>
+        <div class="card" id="cardStyle">
 
-                <div id="container" class="col-md-6">
-                    <md-card-content layout="column">
+            <div class="reg_title">
+                <h4 style="margin: 20px">Register</h4>
+            </div>
 
-                        <form name="registrationForm" ng-submit="submitRegForm()">
+            <div class="card-block" layout="column">
 
-                            <md-input-container class="md-block">
-                                <label>First Name:</label>
-                                <input name="firstName" type="text" ng-model="firstName" required>
-                                <div ng-messages="registrationForm.firstName.$error">
-                                    <div ng-message="required">First Name is required.</div>
-                                </div>
-                            </md-input-container>
+                <form name="registrationForm" ng-submit="submitRegForm()">
 
-                            <md-input-container class="md-block">
-                                <label>Last Name:</label>
-                                <input name="lastName" type="text" ng-model="lastName" required>
-                                <div ng-messages="registrationForm.lastName.$error">
-                                    <div ng-message="required">Last Name is required.</div>
-                                </div>
-                            </md-input-container>
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input name="firstName" class="form-control" type="text" ng-model="firstName" id="firstName" required>
+                        <div ng-messages="registrationForm.firstName.$error" ng-if="registrationForm.firstName.$touched">
+                            <p ng-message="required" class="errorColor">First Name is required.</p>
+                        </div>
+                    </div>
 
-                            <div class="radioMargin">
-                                <span class="labelColor">Gender:  </span>
-                                <md-radio-group ng-model="gender" class="md-primary">
-                                    <md-radio-button value="Male">Male</md-radio-button>
-                                    <md-radio-button value="Female">Female</md-radio-button>
-                                </md-radio-group>
-                            </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input name="lastName" class="form-control" type="text" ng-model="lastName" id="lastName" required>
+                        <div ng-messages="registrationForm.lastName.$error" ng-if="registrationForm.lastName.$touched">
+                            <p ng-message="required" class="errorColor">Last Name is required.</p>
+                        </div>
+                    </div>
 
+                    <div class="form-group" layout="row">
+                        <label for="gender" style="margin-right: 10px">Gender:</label>
+                        <div class="form-check" id="gender" style="margin-right: 20px">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" ng-model="gender" value="Male">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" ng-model="gender" value="Female">
+                                Female
+                            </label>
+                        </div>
+                    </div>
 
-                            <md-input-container class="md-block">
-                                <label>Contact:</label>
-                                <input name="contact" type="text" ng-model="contact" required>
-                                <div ng-messages="registrationForm.contact.$error">
-                                    <div ng-message="required">Contact is required.</div>
-                                </div>
-                            </md-input-container>
+                    <div class="form-group">
+                        <label for="contact">Contact:</label>
+                        <input name="contact" class="form-control" type="text" ng-model="contact" id="contact" required>
+                        <div ng-messages="registrationForm.contact.$error" ng-if="registrationForm.contact.$touched">
+                            <p ng-message="required" class="errorColor">Contact is required.</p>
+                        </div>
+                    </div>
 
-                            <md-input-container class="md-block">
-                                <label>Username:</label>
-                                <input name="userName" type="text" ng-model="userName" required>
-                                <div ng-messages="registrationForm.userName.$error">
-                                    <div ng-message="required">Username is required.</div>
-                                </div>
-                            </md-input-container>
+                    <div class="form-group">
+                        <label for="userName">Username:</label>
+                        <input name="userName" class="form-control" type="text" ng-model="userName" id="userName" required>
+                        <div ng-messages="registrationForm.userName.$error" ng-if="registrationForm.userName.$touched">
+                            <p ng-message="required" class="errorColor">Username is required.</p>
+                        </div>
+                    </div>
 
-                            <md-input-container class="md-block">
-                                <label>Email:</label>
-                                <input name="email" type="email" ng-model="email" ng-pattern="/^.+@.+\..+$/"
-                                       maxlength="100" minlength="10" required>
-                                <div ng-messages="projectForm.userEmail.$error">
-                                    <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                                        Your email must be between 10 and 100 characters long and should be a valid email address.
-                                    </div>
-                                </div>
-                            </md-input-container>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input name="email" class="form-control" type="email" ng-model="email" ng-pattern="/^.+@.+\..+$/"
+                               maxlength="100" minlength="10" id="email" required>
+                        <div ng-messages="registrationForm.email.$error" ng-if="registrationForm.email.$touched">
+                            <p ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']" class="errorColor">
+                                Your email must be between 10 and 100 characters long and should be a valid email address.
+                            </p>
+                        </div>
+                    </div>
 
-                            <md-input-container class="md-block">
-                                <label>Password:</label>
-                                <input name="password" type="password" ng-model="password" required>
-                                <div ng-messages="registrationForm.password.$error">
-                                    <div ng-message="required">Password is required.</div>
-                                </div>
-                            </md-input-container>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input name="password" class="form-control" type="password" ng-model="password" id="password" required>
+                        <div ng-messages="registrationForm.password.$error" ng-if="registrationForm.password.$touched">
+                            <p ng-message="required" class="errorColor">Password is required.</p>
+                        </div>
+                    </div>
 
-                            <md-input-container class="md-block">
-                                <label>Confirm Password:</label>
-                                <input name="cpassword" type="password" ng-model="cpassword" required compare-to="password">
-                                <div ng-messages="registrationForm.cpassword.$error">
-                                    <div ng-message="required">Enter your password again and it should match the password above.</div>
-                                </div>
-                            </md-input-container>
+                    <div class="form-group">
+                        <label for="cpassword">Confirm Password:</label>
+                        <input name="cpassword" class="form-control" type="password" ng-model="cpassword" required id="cpassword" compare-to="password">
+                        <div ng-messages="registrationForm.cpassword.$error" ng-if="registrationForm.cpassword.$touched">
+                            <p ng-message="required" class="errorColor">Enter your password again and it should match the password above.</p>
+                        </div>
+                    </div>
 
-                            <md-button class="md-raised md-primary loginButton" md-theme="default" ng-click="submitRegForm()">
-                                Register
-                            </md-button>
+                    <div class="text-center">
+                        <md-button class="md-raised md-primary" md-theme="default" ng-click="submitRegForm()">
+                            Register
+                        </md-button>
+                    </div>
 
-                        </form>
+                </form>
 
-                    </md-card-content>
-                </div>
+            </div>
 
-            </md-card>
         </div>
+
     </div>
 
 
     <script>
 
-        angular.module('MyApp',['ngMaterial','reg'])
+        angular.module('MyApp',['ngMaterial','ngMessages','reg'])
             .config(function ($mdThemingProvider) {
                 $mdThemingProvider.theme('custom-theme').backgroundPalette('brown').primaryPalette('blue-grey').accentPalette('yellow');
             });
