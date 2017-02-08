@@ -5,28 +5,37 @@ angular.module('login').controller('LoginController',LoginController);
 
     function LoginController($scope, $http) {
 
-        var self = this;
-        
+        let self = this;
         self.checkUser = checkUser;
         self.isValid = false;
-        
+        self.show = true;
+
         function checkUser() {
             $http({
-                url: 'LoginServlet',
-                method: 'POST',
+                url: '/LoginServlet',
+                method: "POST",
                 headers: {'Content-Type': 'application/json'},
                 data: {
                     'userName': $scope.userName,
                     'password': $scope.password
                 }
-            }).success(function (data) {
-                /*window.location.href = "mainPanel.html";*/
-                $scope.isValid = data;
-            }).error(function (data,status,headers,config) {
-                console.log(data);
-                $scope.isValid = data;
-                console.log($scope.isValid);
+            }).then(function (response) {
+                console.log(response.data);
+                self.isValid = response.data;
+                switch (self.isValid){
+                    case "true":    self.show = true;
+                                    console.log("true case");
+                                    console.log(self.isValid);
+                                    window.location.href = "mainPanel.html";
+                                    break;
+                    case "false":   self.show = false;
+                                    console.log("false case");
+                                    self.isValid = response.data;
+                                    console.log(self.isValid);
+                                    break;
+                }
             });
         }
 
     }
+

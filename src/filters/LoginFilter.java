@@ -61,16 +61,10 @@ public class LoginFilter implements Filter {
             isRegistered = dataBaseAccess.checkUser(userName,password);
             System.out.println(isRegistered);
 
-            HttpSession session = request.getSession();
-            session.setAttribute("validity",isRegistered);
-            if(isRegistered){
-                chain.doFilter(req, resp);
-            }else{
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.html");
-                requestDispatcher.forward(request,response);
-                System.out.println("Redirecting to index...!!!");
-                return;
-            }
+            request.setAttribute("validity",isRegistered);
+
+            chain.doFilter(req, resp);
+
 
         }catch (Exception e){
             e.printStackTrace();

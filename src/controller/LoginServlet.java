@@ -18,7 +18,11 @@ import java.io.IOException;
  */
 public class LoginServlet extends HttpServlet {
 
+    private boolean isUserValid;
 
+    public LoginServlet(){
+        isUserValid = false;
+    }
 
     @Override
     public void init() throws ServletException {
@@ -28,21 +32,10 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html");
-
-        HttpSession session = request.getSession();
-        boolean isUserValid = (boolean)session.getAttribute("validity");
-        if (isUserValid){
-            System.out.println("--------->"+isUserValid);
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/Hello.jsp");
-            System.out.println(""+request.getRequestURL());
-            requestDispatcher.forward(request,response);
-            System.out.println(requestDispatcher.toString());
-            System.out.println("--------->>>After dispatch");
-            return;
-            /*response.sendRedirect("mainPanel.html");
-            return;*/
-        }
-
+        isUserValid = (boolean)request.getAttribute("validity");
+        System.out.println(isUserValid);
+        response.getWriter().print(isUserValid);
+        System.out.println(""+request.getRequestURL());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
