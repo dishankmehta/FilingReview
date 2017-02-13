@@ -21,8 +21,13 @@ h1{
     text-align: center;
     background-color: #7AC74F;
     color: #fafafa;
+    padding: 10px;
 }
 
 .errorColor{
     color: red;
+}
+
+.card-block{
+    padding: 20px;
 }

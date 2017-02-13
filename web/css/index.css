@@ -41,11 +41,6 @@ md-toolbar h1 {
     margin-bottom: 20px;
 }
 
-md-tabs.tab{
-    max-width: inherit;
-    max-height: inherit;
-}
-
 a{
     color: orangered;
 }
@@ -59,8 +54,13 @@ md-input-container{
 }
 
 .login_title{
-    background-color: blue;
+    background-color: #7AC74F;
     color: #fafafa;
+    padding: 10px;
+}
+
+.card-block{
+    padding: 20px;
 }
 
 .card {
