@@ -5,9 +5,9 @@
     <title>Welcome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
@@ -34,7 +34,7 @@
 
             <div class="card text-center" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;">
 
-                <div class="login_title" style="background-color: #7AC74F; color: #fafafa">
+                <div class="login_title" style="background-color: #7AC74F; color: #fafafa;">
                     <h4 style="margin: 20px">Login</h4>
                 </div>
 
@@ -79,7 +79,7 @@
 
     </div>
 
-    <div class="modal fade" ng-if="!lc.show">
+    <div class="modal fade" ng-show="lc.show">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -105,7 +105,6 @@
             .config(function ($mdThemingProvider) {
                 $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark().primaryPalette('grey').accentPalette('red');
             });
-
 
     </script>
 

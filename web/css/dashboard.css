@@ -1,0 +1,17 @@
+.topnav-navbar .navbar-brand {
+    width: 230px;
+    background: #2c3e50;
+    padding: 15px 0;
+    color: #7997b5;
+    padding-left: 65px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.navbar-brand {
+    float: left;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}

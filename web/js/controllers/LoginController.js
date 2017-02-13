@@ -8,7 +8,7 @@ angular.module('login').controller('LoginController',LoginController);
         let self = this;
         self.checkUser = checkUser;
         self.isValid = false;
-        self.show = true;
+        self.show = false;
 
         function checkUser() {
             $http({
@@ -23,12 +23,12 @@ angular.module('login').controller('LoginController',LoginController);
                 console.log(response.data);
                 self.isValid = response.data;
                 switch (self.isValid){
-                    case "true":    self.show = true;
+                    case "true":    self.show = false;
                                     console.log("true case");
                                     console.log(self.isValid);
                                     window.location.href = "mainPanel.html";
                                     break;
-                    case "false":   self.show = false;
+                    case "false":   self.show = true;
                                     console.log("false case");
                                     self.isValid = response.data;
                                     console.log(self.isValid);
