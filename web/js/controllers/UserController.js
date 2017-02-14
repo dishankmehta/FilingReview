@@ -5,7 +5,7 @@
     angular.module('users').controller('UserController',UserController);
 
     function UserController( userService, $mdSidenav, $mdBottomSheet, $log) {
-        var self = this;
+        let self = this;
 
         self.selected = null;
         self.users = [];

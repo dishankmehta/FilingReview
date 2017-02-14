@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
 
 </head>
-<body>
+<body ng-app="MyApp">
 
     <nav class="navbar topnav-navbar navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -56,6 +56,10 @@
             </div>
         </div>
     </aside>
+
+    <script>
+        angular.module("MyApp",['ngMaterial']);
+    </script>
 
 
 </body>
