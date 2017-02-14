@@ -38,5 +38,13 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="tether" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery-3.1.1.slim" level="application" />
+    <orderEntry type="library" name="angular" level="application" />
+    <orderEntry type="library" name="angular-animate" level="application" />
+    <orderEntry type="library" name="angular-aria" level="application" />
+    <orderEntry type="library" name="angular-material" level="application" />
   </component>
 </module>
