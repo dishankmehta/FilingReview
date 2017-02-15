@@ -180,7 +180,24 @@ a.btn-default:active, a.btn-default:focus, a.btn-default:hover, a.btn-default:vi
 
 .items-container{
     margin: 10px;
+    padding: 10px;
     background-color: #fff;
     min-height: inherit;
     height: 680px;
+}
+
+.dash-main-text{
+    margin: 15px;
+}
+
+.card1-title{
+    text-align: center;
+    color: whitesmoke;
+    background-color: #03a9f4;
+}
+
+.inner-card{
+    border: 2px solid black;
+    margin: 120px 20px 20px 20px;
+    width: 300px;
 }
