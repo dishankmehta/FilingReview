@@ -15,9 +15,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <script src="js/modules/Dash.js"></script>
+    <script src="js/controllers/DashControler.js"></script>
 
 </head>
-<body ng-app="MyApp">
+<body ng-app="MyApp" ng-controller="DashController as dc">
 
     <nav class="navbar topnav-navbar navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -49,16 +51,35 @@
             <div class="sidenav-items">
                 <div class="text-center">
                     <a href="#">
-                        <img src="" class="dashboard-avatar">
+                        <img src="pngs/myAvatar.png" class="dashboard-avatar">
                     </a>
                     <div class="text-center avatar-name">Welcome</div>
+
+                    <ul class="sidebar-list">
+                        <li ng-repeat="li in dc.dashItems">
+                            <a type="button" class="btn btn-default" role="button">
+                                <span class="{{li.class}}"></span>
+                                {{li.name}}
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </aside>
 
+    <section class="dashboard-content" >
+        <div class="content-wrapper">
+            <div class="card items-container">
+                <br/>
+                <br/>
+                <h3>Hello</h3>
+            </div>
+        </div>
+    </section>
+
     <script>
-        angular.module("MyApp",['ngMaterial']);
+        angular.module("MyApp",['ngMaterial','dash']);
     </script>
 
 

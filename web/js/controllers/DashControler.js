@@ -6,10 +6,10 @@ angular.module('dash').controller("DashController",DashController);
     function DashController(){
 
         this.dashItems = [
-            {name: "Home"},
-            {name: "Pending Files"},
-            {name: "Saved Files"},
-            {name: "Trash"}
+            {name: "Home", class: "glyphicon glyphicon-home"},
+            {name: "Pending Files", class: "glyphicon glyphicon-file"},
+            {name: "Saved Files", class: "glyphicon glyphicon-inbox"},
+            {name: "Trash", class:"glyphicon glyphicon-trash"}
         ];
 
     }
