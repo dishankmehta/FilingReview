@@ -12,6 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-resource.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.7/angular-material.min.css">
     <link rel="stylesheet" href="css/dashboard.css">
@@ -57,7 +60,7 @@
 
                     <ul class="sidebar-list">
                         <li ng-repeat="li in dc.dashItems">
-                            <a type="button" class="btn btn-default" role="button">
+                            <a type="button" class="btn btn-default" href="{{li.href}}" role="button">
                                 <span class="{{li.class}}"></span>
                                 {{li.name}}
                             </a>
@@ -70,6 +73,7 @@
 
     <section class="dashboard-content">
             <div class="card items-container">
+                <!--<ng-view></ng-view>-->
                 <div>
                     <h3 class="dash-main-text">Home</h3>
                 </div>

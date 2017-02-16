@@ -61,7 +61,7 @@
 
 
 
-                        <md-button class="md-raised md-primary" md-theme="default" ng-click="lc.checkUser();">
+                        <md-button class="md-raised md-primary" md-theme="default" ng-click="lc.checkUser(); showModal = !showModal">
                             Login
                         </md-button>
 
@@ -79,7 +79,7 @@
 
     </div>
 
-    <div class="modal fade" ng-show="lc.show">
+    <div class="modal fade" ng-show="!showModal" role="alert">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

@@ -3,4 +3,4 @@
  */
 'use strict';
 
-angular.module('dash',['ngMaterial']);
+angular.module('dash',['ngMaterial','ngRoute']);
