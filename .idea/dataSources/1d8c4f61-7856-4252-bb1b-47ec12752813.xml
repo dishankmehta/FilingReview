@@ -16,39 +16,63 @@
     <schema id="10" parent="1" name="student_register"/>
     <schema id="11" parent="1" name="test"/>
     <schema id="12" parent="1" name="web_register"/>
-    <table id="13" parent="2" name="user_data"/>
-    <column id="14" parent="13" name="firstName">
+    <schema id="13" parent="1" name="hibernate_ano"/>
+    <schema id="14" parent="1" name="jsf_practice"/>
+    <schema id="15" parent="1" name="spring_database"/>
+    <table id="16" parent="2" name="user_data"/>
+    <table id="17" parent="2" name="user_pdf"/>
+    <column id="18" parent="16" name="firstName">
       <Position>1</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="15" parent="13" name="lastName">
+    <column id="19" parent="16" name="lastName">
       <Position>2</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="16" parent="13" name="gender">
+    <column id="20" parent="16" name="gender">
       <Position>3</Position>
       <DataType>varchar(6)|0</DataType>
     </column>
-    <column id="17" parent="13" name="contact">
+    <column id="21" parent="16" name="contact">
       <Position>4</Position>
       <DataType>varchar(15)|0</DataType>
     </column>
-    <column id="18" parent="13" name="userName">
+    <column id="22" parent="16" name="userName">
       <Position>5</Position>
       <DataType>varchar(30)|0</DataType>
     </column>
-    <column id="19" parent="13" name="email">
+    <column id="23" parent="16" name="email">
       <Position>6</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="20" parent="13" name="password">
+    <column id="24" parent="16" name="password">
       <Position>7</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <key id="21" parent="13" name="PRIMARY">
+    <key id="25" parent="16" name="PRIMARY">
       <ColNames>email</ColNames>
       <Primary>1</Primary>
     </key>
+    <column id="26" parent="17" name="email">
+      <Position>1</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="17" name="userName">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="17" name="pdfName">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="17" name="pdfFile">
+      <Position>4</Position>
+      <DataType>mediumblob|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
   </database-model>
 </dataSource>

@@ -42,14 +42,16 @@
                     <li><a href="#">Page 2</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" class="btn btn-primary btn-rounded btn-bordered sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#" class="btn btn-primary btn-rounded btn-bordered sign-up"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+                    <li><a href="#" class="btn btn-primary btn-rounded btn-bordered sign-up">
+                        <span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                    <li><a href="#" class="btn btn-primary btn-rounded btn-bordered sign-up">
+                        <span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <aside id="sidebar">
+    <aside id="sidebar" ng-controller="PFileController as pf">
         <div class="sidenav-outer ps-container">
             <div class="sidenav-items">
                 <div class="text-center">
@@ -60,7 +62,7 @@
 
                     <ul class="sidebar-list">
                         <li ng-repeat="li in dc.dashItems">
-                            <a type="button" class="btn btn-default" href="{{li.href}}" role="button">
+                            <a type="button" class="btn btn-default" href="{{li.href}}" role="button" ng-click="">
                                 <span class="{{li.class}}"></span>
                                 {{li.name}}
                             </a>
@@ -73,8 +75,8 @@
 
     <section class="dashboard-content">
             <div class="card items-container">
-                <!--<ng-view></ng-view>-->
-                <div>
+                <ng-view></ng-view>
+                <!--<div>
                     <h3 class="dash-main-text">Home</h3>
                 </div>
                 <div flex="" layout="row">
@@ -101,7 +103,7 @@
 
                 <div class="calendar-container text-center">
 
-                </div>
+                </div>-->
 
             </div>
     </section>

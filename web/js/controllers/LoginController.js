@@ -5,6 +5,7 @@ angular.module('login').controller('LoginController',LoginController);
 
     function LoginController($scope, $http) {
 
+        let userEmail = [];
         let self = this;
         self.checkUser = checkUser;
         self.isValid = false;
@@ -26,7 +27,9 @@ angular.module('login').controller('LoginController',LoginController);
                     case "true":    $scope.showModal = false;
                                     console.log("true case");
                                     console.log(self.isValid);
-                                    window.location.href = "mainPanel.html";
+                                    userEmail.push($scope.userName);
+                                    window.sessionStorage.setItem("email",JSON.stringify(userEmail));
+                                    window.location.href = "dashBoard.html";
                                     break;
                     case "false":   $scope.showModal = true;
                                     console.log("false case");

@@ -1,11 +1,14 @@
 package dao;
 
+import model.FileModel;
 import model.UserRegister;
 
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  * Created by trainees on 1/31/2017.
@@ -98,4 +101,36 @@ public class DataBaseAccess {
         }
     }
 
+    public ArrayList<FileModel> fetchFiles(String email){
+        Connection conn = makeConnection();
+        PreparedStatement ps;
+
+        String stmt = "SELECT pdfName,pdfFile FROM user_pdf WHERE email=? OR userName=?";
+
+        ArrayList<FileModel> files = new ArrayList<>();
+
+        System.out.println("Going into database..!!");
+
+        try{
+
+            ps = conn.prepareStatement(stmt);
+            ps.setString(1,email);
+            ps.setString(2,email);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()){
+                FileModel fm = new FileModel();
+                fm.setFileName(rs.getString(1));
+                fm.setFileInputStream((FileInputStream) rs.getBlob(2));
+                files.add(fm);
+            }
+
+            return files;
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

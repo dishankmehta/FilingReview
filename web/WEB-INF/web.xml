@@ -21,6 +21,16 @@
         <url-pattern>/RegisterServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>DashServlet</servlet-name>
+        <servlet-class>controller.DashServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DashServlet</servlet-name>
+        <url-pattern>/DashServlet</url-pattern>
+    </servlet-mapping>
+    
+    
     <filter>
         <filter-name>loginFilter</filter-name>
         <filter-class>filters.LoginFilter</filter-class>
